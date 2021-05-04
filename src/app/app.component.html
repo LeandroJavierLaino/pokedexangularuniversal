@@ -72,29 +72,9 @@
   }
 </style>
 
-<p>
-  <mat-toolbar-row class="toolbar">
-    <div class="searchinputcontainer">
-      <div class="searchinput">
-        <mat-form-field appearance="outline" class="example-full-width">
-          <mat-label>Find a pokemon . . . </mat-label>
-          <input matInput type="search" />
-        </mat-form-field>
-      </div>
-
-      <button
-        class="findbutton"
-        mat-icon-button
-        aria-label="Example icon button with a open in new tab icon"
-        (click)="searchPokemon($event)"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
-    </div>
-
-    <div class="title">{{ "Pokedex" }}</div>
-  </mat-toolbar-row>
-</p>
+<div>
+  <app-toolbar></app-toolbar>
+</div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

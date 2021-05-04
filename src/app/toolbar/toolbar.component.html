@@ -1,1 +1,95 @@
-<p>toolbar works!</p>
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d21919;
+    color: white;
+    font-weight: 500;
+  }
+
+  .title {
+    margin: 35px;
+    font-size: xx-large;
+  }
+
+  .searchinput {
+    display: flex;
+  }
+
+  .searchinputcontainer {
+    display: flex;
+    color: white;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 5px;
+  }
+
+  .findbutton {
+    margin: 10px;
+  }
+
+  .label {
+    color: white;
+  }
+</style>
+<p>
+  <mat-toolbar-row class="toolbar">
+    <div class="searchinputcontainer">
+      <div class="searchinput">
+        <mat-form-field
+          (input)="onSearchChange($event)"
+          appearance="outline"
+          class="example-full-width"
+        >
+          <mat-label class="label">Find a pokemon . . . </mat-label>
+          <input matInput type="search" />
+        </mat-form-field>
+      </div>
+
+      <button
+        class="findbutton"
+        mat-icon-button
+        aria-label="Example icon button with a open in new tab icon"
+        (click)="searchPokemon($event)"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+
+    <div class="title">{{ "Pokedex" }}</div>
+  </mat-toolbar-row>
+</p>

@@ -1,0 +1,21 @@
+<style>
+  .main {
+    margin-top: 70px;
+  }
+  .cardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    margin: 5px;
+  }
+</style>
+
+<div class="main">
+  <div class="cardcontainer">
+    <pokecard
+      [name]="pokemon.name"
+      *ngFor="let pokemon of pokemons; let i = index"
+    ></pokecard>
+  </div>
+</div>

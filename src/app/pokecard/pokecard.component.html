@@ -1,0 +1,29 @@
+<style>
+  .main {
+    margin-top: 70px;
+  }
+  .cardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card {
+    margin: 5px;
+  }
+</style>
+
+<mat-card class="card">
+  <mat-card-title>
+    {{ pokemon.name }}
+  </mat-card-title>
+  <mat-card-subtitle> # {{ pokemon.id }} </mat-card-subtitle>
+  <img
+    mat-card-lg-image
+    alt="pokemon.name"
+    [src]="pokemon.sprites.front_default"
+  />
+  <mat-card-actions>
+    <button mat-icon-button>
+      <mat-icon> analytics </mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

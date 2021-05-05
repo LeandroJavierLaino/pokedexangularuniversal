@@ -9,7 +9,7 @@ type PokemonCard = {
   sprites: Sprites;
   height?: number;
   weight?: number;
-  skills?: Skill[];
+  abilities?: AbilitySlot[];
   types?: TypeSlot[];
 };
 

@@ -12,7 +12,9 @@
 </style>
 
 <div class="main">
-  <div class="cardcontainer">
-    {{ pokemonName }}
-  </div>
+  <button (click)="goTo()" mat-icon-button>
+    <mat-icon> chevron_left </mat-icon>
+  </button>
+
+  <pokedetail [pokemon]="pokemonData"></pokedetail>
 </div>

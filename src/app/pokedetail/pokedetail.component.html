@@ -1,0 +1,56 @@
+<style>
+  .main {
+    margin-top: 70px;
+  }
+
+  .card {
+    max-width: 350px;
+    margin: 5px;
+  }
+</style>
+
+<mat-card class="card">
+  <mat-card-title>
+    {{ pokemon.name }}
+  </mat-card-title>
+  <mat-card-subtitle> # {{ pokemon.id }} </mat-card-subtitle>
+  <img
+    mat-card-lg-image
+    alt="pokemon.name"
+    [src]="pokemon.sprites.front_default"
+  />
+  <mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <p>Physical Characteristics</p>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item>
+        <p>Weight {{ pokemon.weight }}</p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>Height {{ pokemon.height }}</p>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <p>Skills</p>
+    <mat-divider></mat-divider>
+
+    <mat-list>
+      <mat-list-item *ngFor="let ability of pokemon.abilities; let i = index">
+        <p>[{{ i }}] : {{ ability.ability.name }}</p>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <p>Types</p>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item *ngFor="let type of pokemon.types; let i = index">
+        <p>[{{ i }}] : {{ type.type.name }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

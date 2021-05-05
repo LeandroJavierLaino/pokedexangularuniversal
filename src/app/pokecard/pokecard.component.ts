@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { getPokemon } from 'src/helpers/pokemons';
 
 @Component({
@@ -14,7 +16,15 @@ export class PokecardComponent {
     sprites: { front_default: '' },
   };
 
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
   async ngOnInit() {
     this.pokemon = await getPokemon(this.name);
+  }
+
+  goTo() {
+    this.router.navigate([`pokemon/${this.pokemon.name}`], {
+      relativeTo: this.route,
+    });
   }
 }

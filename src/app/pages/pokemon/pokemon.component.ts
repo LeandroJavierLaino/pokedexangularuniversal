@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { getPokemon } from 'src/helpers/pokemons';
 
 @Component({
   templateUrl: './pokemon.component.html',
@@ -7,13 +8,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PokemonComponent implements OnInit {
   pokemonName: string = '';
+  pokemonData: PokemonCard = {} as PokemonCard;
 
-  constructor(public activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRouter: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  ngOnInit() {
-    // this.pokemonName = this.activatedRoute.params.subscribe((params) => {
-    //   this.pokemonName = params['pokemonName'];
-    // });
-    // console.log(this.pokemonName);
+  async ngOnInit() {
+    this.pokemonName = this.activatedRouter.snapshot.paramMap.get(
+      'pokemonName'
+    ) as string;
+
+    this.pokemonData = await getPokemon(this.pokemonName);
+  }
+
+  goTo() {
+    this.router.navigate(['']);
   }
 }
